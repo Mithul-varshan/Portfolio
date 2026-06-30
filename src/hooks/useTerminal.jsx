@@ -107,7 +107,7 @@ export default function useTerminal() {
         break
 
       case 'pwd':
-        pushLines([{ type: 'output', text: '/home/yourname/portfolio', color: 'green' }])
+        pushLines([{ type: 'output', text: '/home/MITHUL VARSHAN S K/portfolio', color: 'green' }])
         break
 
       case 'date':

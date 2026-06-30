@@ -22,7 +22,7 @@ export default function MobileTerminal() {
   return (
     <div className="flex flex-col h-screen bg-terminal-bg font-mono">
       <div className="flex items-center px-4 py-2 bg-terminal-surface border-b border-terminal-border">
-        <span className="text-terminal-green text-sm font-bold">YOURNAME</span>
+        <span className="text-terminal-green text-sm font-bold">MITHUL VARSHAN S K</span>
         <span className="text-terminal-muted text-xs ml-2">— portfolio</span>
       </div>
 
