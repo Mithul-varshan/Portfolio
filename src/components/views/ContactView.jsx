@@ -1,0 +1,81 @@
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import toast from 'react-hot-toast'
+
+export default function ContactView({ onClose }) {
+  const [form, setForm] = useState({ name: '', email: '', message: '' })
+  const [sending, setSending] = useState(false)
+  const [sent, setSent] = useState(false)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!form.name || !form.email || !form.message) {
+      toast.error('All fields required.')
+      return
+    }
+    setSending(true)
+    // Replace with your EmailJS / Formspree call here
+    await new Promise(r => setTimeout(r, 1500))
+    setSending(false)
+    setSent(true)
+    toast.success('Message sent! I\'ll reply within 24hrs.')
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="border border-terminal-border rounded p-4 my-2 bg-terminal-surface"
+    >
+      <div className="flex justify-between items-center mb-4">
+        <span className="text-terminal-muted text-xs">./contact.sh</span>
+        <button onClick={onClose} className="text-terminal-muted text-xs hover:text-terminal-red transition-colors">
+          [x] close
+        </button>
+      </div>
+
+      {sent ? (
+        <div className="space-y-1 text-sm">
+          <p className="text-terminal-green">✓ Message transmitted successfully.</p>
+          <p className="text-terminal-muted">Expected response time: &lt; 24hrs</p>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-3">
+          {[
+            { label: 'name', key: 'name', type: 'text' },
+            { label: 'email', key: 'email', type: 'email' },
+          ].map(field => (
+            <div key={field.key} className="flex items-center gap-3">
+              <span className="text-terminal-green text-sm w-16">{field.label}:</span>
+              <input
+                type={field.type}
+                value={form[field.key]}
+                onChange={e => setForm(f => ({ ...f, [field.key]: e.target.value }))}
+                className="flex-1 bg-transparent border-b border-terminal-border text-terminal-text text-sm outline-none focus:border-terminal-green transition-colors pb-0.5 font-mono"
+                placeholder={`enter ${field.label}...`}
+                autoComplete="off"
+              />
+            </div>
+          ))}
+          <div>
+            <span className="text-terminal-green text-sm">message:</span>
+            <textarea
+              value={form.message}
+              onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+              rows={4}
+              className="w-full mt-1 bg-terminal-bg border border-terminal-border rounded text-terminal-text text-sm outline-none focus:border-terminal-green transition-colors p-2 font-mono resize-none"
+              placeholder="what do you want to build together?"
+            />
+          </div>
+          <button
+            type="submit"
+            disabled={sending}
+            className="text-sm text-terminal-bg bg-terminal-green px-4 py-1.5 rounded font-mono hover:bg-terminal-green-dim transition-colors disabled:opacity-50"
+          >
+            {sending ? 'sending...' : '$ send message'}
+          </button>
+        </form>
+      )}
+    </motion.div>
+  )
+}
