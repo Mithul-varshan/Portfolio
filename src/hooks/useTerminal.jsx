@@ -90,7 +90,7 @@ export default function useTerminal() {
           pushLines([{ type: 'output', text: '→ opening projects/...', color: 'muted' }])
         } else if (matchesFile(args, 'resume')) {
           pushLines([{ type: 'output', text: '→ downloading resume.pdf...', color: 'amber' }])
-          setTimeout(() => window.open('/resume.pdf', '_blank'), 500)
+          setTimeout(() => window.open('/Mithul resume.pdf', '_blank'), 500)
         } else {
           pushLines([{ type: 'output', text: `open: ${args.join(' ')}: not found`, color: 'red' }])
         }

@@ -35,5 +35,5 @@ available commands:
 
 export const FILE_SYSTEM = {
   '/': ['about.md', 'skills.txt', 'resume.pdf', 'contact.sh', 'projects/'],
-  '/projects': ['ecommerce-platform/', 'ai-chat-app/', 'devtools-extension/', 'portfolio-v1/'],
+  '/projects': ['URL-Shortner/', 'Contact-Management-System/', 'devtools-extension/', 'portfolio-v1/'],
 }
