@@ -2,6 +2,9 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import toast from 'react-hot-toast'
 import emailjs from "@emailjs/browser";
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function ContactView({ onClose }) {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -20,14 +23,14 @@ export default function ContactView({ onClose }) {
 
   try {
     await emailjs.send(
-      "service_q8ta5em",
-      "template_d23zzsk",
+      SERVICE_ID,
+      TEMPLATE_ID,
       {
         name: form.name,
         email: form.email,
         message: form.message,
       },
-      "jPXw4UBH99YXRFTHK"
+      PUBLIC_KEY
     );
 
     setSending(false);
