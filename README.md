@@ -218,8 +218,8 @@ MIT — free to use, adapt, and make your own. A credit or a star is appreciated
 
 ## Author
 
-**Your Name**
-[GitHub](https://github.com/yourusername) · [LinkedIn](https://linkedin.com/in/yourname) · [Portfolio](https://yourportfolio.com)
+**MITHUL VARSHAN S K**
+[GitHub](https://github.com/Mithul-varshan) · [LinkedIn](https://linkedin.com/in/mithulvarshan)
 
 ---
 
