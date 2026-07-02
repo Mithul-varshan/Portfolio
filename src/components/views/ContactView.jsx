@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import toast from 'react-hot-toast'
+import emailjs from "@emailjs/browser";
 
 export default function ContactView({ onClose }) {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
@@ -8,18 +9,43 @@ export default function ContactView({ onClose }) {
   const [sent, setSent] = useState(false)
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!form.name || !form.email || !form.message) {
-      toast.error('All fields required.')
-      return
-    }
-    setSending(true)
-    // Replace with your EmailJS / Formspree call here
-    await new Promise(r => setTimeout(r, 1500))
-    setSending(false)
-    setSent(true)
-    toast.success('Message sent! I\'ll reply within 24hrs.')
+  e.preventDefault();
+
+  if (!form.name || !form.email || !form.message) {
+    toast.error("All fields required.");
+    return;
   }
+
+  setSending(true);
+
+  try {
+    await emailjs.send(
+      "service_q8ta5em",
+      "template_d23zzsk",
+      {
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      },
+      "jPXw4UBH99YXRFTHK"
+    );
+
+    setSending(false);
+    setSent(true);
+
+    setForm({
+      name: "",
+      email: "",
+      message: "",
+    });
+
+    toast.success("Message sent! I'll reply within 24hrs.");
+  } catch (error) {
+    console.error(error);
+    setSending(false);
+    toast.error("Failed to send message.");
+  }
+};
 
   return (
     <motion.div

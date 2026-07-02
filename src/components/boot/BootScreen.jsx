@@ -62,7 +62,7 @@ export default function BootScreen({ onComplete }) {
                     <div className="relative w-20 h-20">
                       <div className="absolute inset-0 rounded-full border-2 border-terminal-green animate-pulse-slow" />
                       <img
-                        src="public\WhatsApp Image 2025-08-18 at 18.44.24_6edf2c3a.jpg"
+                        src="/WhatsApp Image 2025-08-18 at 18.44.24_6edf2c3a.jpg"
                         alt="Mithul Varshan S K"
                         className="w-full h-full rounded-full object-cover grayscale contrast-125 opacity-90"
                         style={{ filter: 'grayscale(100%) contrast(1.1) brightness(0.95)' }}
