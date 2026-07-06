@@ -1,7 +1,8 @@
-export default function Cursor({ className = '' }) {
+export default function Cursor({ className = '', style = {} }) {
   return (
     <span
-      className={`inline-block w-2 h-4 bg-terminal-green animate-blink align-middle ${className}`}
+      style={style}
+      className={`pointer-events-none absolute w-2 h-5 bg-terminal-green animate-blink ${className}`}
       aria-hidden="true"
     />
   )
