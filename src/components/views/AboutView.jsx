@@ -43,31 +43,37 @@ export default function AboutView({ onClose }) {
       </div>
 
       <div className="space-y-0.5">
-        {lines.map((line, i) => (
-          <motion.p
-            key={i}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: i * 0.03, duration: 0.1 }}
-            className={`text-sm font-mono ${line.color}`}
-          >
-            {line.href ? (
-              <span className="flex">
-                <span className="w-24">{line.label}:</span>
-                <a
-                  href={line.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-terminal-blue underline"
-                >
-                  {line.text}
-                </a>
-              </span>
-            ) : (
-              line.text || '\u00A0'
-            )}
-          </motion.p>
-        ))}
+        {lines.map((line, i) => {
+          const isH2 = line.text?.startsWith('# ')
+          const isH3 = line.text?.startsWith('## ')
+          const Tag = isH2 ? motion.h2 : isH3 ? motion.h3 : motion.p
+
+          return (
+            <Tag
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: i * 0.03, duration: 0.1 }}
+              className={`text-sm font-mono ${line.color}`}
+            >
+              {line.href ? (
+                <span className="flex">
+                  <span className="w-24">{line.label}:</span>
+                  <a
+                    href={line.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-terminal-blue underline"
+                  >
+                    {line.text}
+                  </a>
+                </span>
+              ) : (
+                line.text || '\u00A0'
+              )}
+            </Tag>
+          )
+        })}
       </div>
     </div>
   )

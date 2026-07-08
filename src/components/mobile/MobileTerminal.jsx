@@ -19,6 +19,14 @@ export default function MobileTerminal() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [history, activeView])
 
+  useEffect(() => {
+    if (activeView) {
+      document.title = `Mithul Varshan S K | ${activeView.charAt(0).toUpperCase() + activeView.slice(1)}`
+    } else {
+      document.title = 'Mithul Varshan S K — Full Stack Developer Portfolio'
+    }
+  }, [activeView])
+
   return (
     <div className="flex flex-col h-screen bg-terminal-bg font-mono">
       <div className="flex items-center px-4 py-2 bg-terminal-surface border-b border-terminal-border">

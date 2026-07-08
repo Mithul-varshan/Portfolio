@@ -9,7 +9,7 @@ const STATUS_COLORS = {
 
 export default function ProjectsView({ onClose }) {
   return (
-    <div className="border border-terminal-border rounded p-4 my-2 bg-terminal-surface">
+    <section className="border border-terminal-border rounded p-4 my-2 bg-terminal-surface">
       <div className="flex justify-between items-center mb-3">
         <span className="text-terminal-muted text-xs">ls -la projects/</span>
         <button onClick={onClose} className="text-terminal-muted text-xs hover:text-terminal-red transition-colors">
@@ -26,7 +26,7 @@ export default function ProjectsView({ onClose }) {
             className="border border-terminal-border rounded p-3 hover:border-terminal-green transition-colors"
           >
             <div className="flex items-center justify-between mb-1">
-              <span className="text-terminal-blue font-mono text-sm">{project.name}/</span>
+              <h3 className="text-terminal-blue font-mono text-sm">{project.name}/</h3>
               <span className={`text-xs font-mono ${STATUS_COLORS[project.status] || 'text-terminal-muted'}`}>
                 [{project.status}]
               </span>
@@ -56,6 +56,6 @@ export default function ProjectsView({ onClose }) {
           </motion.div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }

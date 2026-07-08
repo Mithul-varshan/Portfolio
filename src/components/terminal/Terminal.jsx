@@ -23,6 +23,14 @@ export default function Terminal() {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [history, activeView])
 
+  useEffect(() => {
+    if (activeView) {
+      document.title = `Mithul Varshan S K | ${activeView.charAt(0).toUpperCase() + activeView.slice(1)}`
+    } else {
+      document.title = 'Mithul Varshan S K — Full Stack Developer Portfolio'
+    }
+  }, [activeView])
+
   const ActiveView = activeView ? VIEW_MAP[activeView] : null
 
   return (

@@ -72,7 +72,7 @@ export default function BootScreen({ onComplete }) {
                   </motion.div>
                 )}
               </AnimatePresence>
-              <p className="text-terminal-green text-4xl font-bold tracking-widest mb-1">MITHUL VARSHAN S K</p>
+              <h1 className="text-terminal-green text-4xl font-bold tracking-widest mb-1">MITHUL VARSHAN S K</h1>
               <p className="text-terminal-muted text-sm tracking-widest uppercase">Full Stack Developer</p>
             </div>
             <div className="space-y-1">

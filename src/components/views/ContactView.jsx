@@ -51,7 +51,7 @@ export default function ContactView({ onClose }) {
 };
 
   return (
-    <motion.div
+    <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       className="border border-terminal-border rounded p-4 my-2 bg-terminal-surface"
@@ -75,8 +75,9 @@ export default function ContactView({ onClose }) {
             { label: 'email', key: 'email', type: 'email' },
           ].map(field => (
             <div key={field.key} className="flex items-center gap-3">
-              <span className="text-terminal-green text-sm w-16">{field.label}:</span>
+              <label htmlFor={field.key} className="text-terminal-green text-sm w-16 select-none cursor-pointer">{field.label}:</label>
               <input
+                id={field.key}
                 type={field.type}
                 value={form[field.key]}
                 onChange={e => setForm(f => ({ ...f, [field.key]: e.target.value }))}
@@ -87,12 +88,13 @@ export default function ContactView({ onClose }) {
             </div>
           ))}
           <div>
-            <span className="text-terminal-green text-sm">message:</span>
+            <label htmlFor="message" className="text-terminal-green text-sm select-none cursor-pointer block mb-1">message:</label>
             <textarea
+              id="message"
               value={form.message}
               onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
               rows={4}
-              className="w-full mt-1 bg-terminal-bg border border-terminal-border rounded text-terminal-text text-sm outline-none focus:border-terminal-green transition-colors p-2 font-mono resize-none"
+              className="w-full bg-terminal-bg border border-terminal-border rounded text-terminal-text text-sm outline-none focus:border-terminal-green transition-colors p-2 font-mono resize-none"
               placeholder="what do you want to build together?"
             />
           </div>
@@ -105,6 +107,6 @@ export default function ContactView({ onClose }) {
           </button>
         </form>
       )}
-    </motion.div>
+    </motion.section>
   )
 }
