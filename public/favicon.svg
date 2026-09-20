@@ -1,0 +1,9 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>Code brackets favicon</title>
+  <desc>Dark square with green code bracket symbols</desc>
+  <rect width="80" height="80" rx="16" fill="#0d0d0d"/>
+  <rect x="8" y="8" width="64" height="64" rx="10" fill="#111111" stroke="#1e1e1e" stroke-width="1"/>
+  <text x="40" y="47" font-family="monospace" font-size="30" fill="#00ff88" font-weight="700" text-anchor="middle">&lt;/&gt;</text>
+</svg>
+
+

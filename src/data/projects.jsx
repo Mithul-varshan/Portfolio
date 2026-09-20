@@ -1,0 +1,32 @@
+export const projects = [
+  {
+    name: 'URL-Shortner',
+    type: 'dir',
+    description: 'Full-stack URL shortening service with React, Node, PostgreSQL',
+    tech: ['React', 'Node.js', 'PostgreSQL'],
+    live: 'https://url.mithulvarshansk.site',
+    github: 'https://github.com/Mithul-varshan/URL-SHORTNER',
+    year: '2026',
+    status: 'live',
+  },
+  {
+    name: 'Contact-Management-System',
+    type: 'dir',
+    description: 'A contact management system with React, Node, and gemini integration',
+    tech: ['React', 'Express', 'gemini'],
+    live: '',
+    github: 'https://github.com/Mithul-varshan/BitConnections',
+    year: '2025',
+    status: 'inactive',
+  },
+  {
+    name: 'portfolio-v1',
+    type: 'dir',
+    description: 'This terminal. Eat your own dogfood.',
+    tech: ['React', 'Three.js', 'Framer Motion', 'Tailwind'],
+    live: 'https://mithulvarshansk.site',
+    github: 'https://github.com/you/portfolio',
+    year: '2025',
+    status: 'live',
+  },
+]
